@@ -1,28 +1,45 @@
-#include <algorithm>
-#include <cstring>
 #include <stdio.h>
+#include <vector>
 
 using namespace std;
 
-char A[52], B[52];
+int T;
+vector<int> vec;
 
-int get_diff(char *a, char *b, int len)
+int is_palindrome(int num, int B)
 {
-	int cnt = 0;
+	while (num > 0)
+	{
+		vec.push_back(num % B);
+		num /= B;
+	}
+	
+	int size = vec.size();
 
-	for (int i = 0; i < len; ++i)
-		if (a[i] != b[i])
-			++cnt;
-	return cnt;
+	for (int i = 0; i < size / 2; ++i)
+		if (vec[i] != vec[size - i - 1])
+			return 0;
+
+	return 1;
 }
 
 int main()
 {
-	int len_diff = strlen(B) - strlen(A), res = 50;
+	int flag, num;
 
-	scanf(" %s %s", A, B);
-	for (int i = 0; i <= len_diff; ++i)
-		res = min(res, get_diff(A + i, B, strlen(A)));
-	printf("%d\n", res);
+	scanf(" %d", &T);
+	while (T--)
+	{
+		scanf(" %d", &num);
+		for (int B = 2; B <= 64; ++B)
+		{
+			flag = is_palindrome(num, B);
+			if (flag)
+				break;
+			vec.clear();
+		}
+		printf("%d\n", flag);
+		vec.clear();
+	}
 	return 0;
 }
