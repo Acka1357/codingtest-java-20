@@ -5,12 +5,11 @@ int num[30];
 char str[1000005];
 
 int main() {
-	char res;
 	int len;
 
 	scanf(" %s", str);
 	len = strlen(str);
-	for (int i = 0; i < len; ++i)
+	for (int i = 0; i < len; i++)
 	{
 		if (str[i] <= 'Z')
 			++num[str[i] - 'A'];
@@ -18,18 +17,19 @@ int main() {
 			++num[str[i] - 'a'];
 	}
 
+	char max_alp = '?';
 	int max_count = -1;
 	for (int i = 0; i < 26; i++) 
 	{
 		if (num[i] == 0) continue;
 		if (max_count == num[i])
-			res = '?';
+			max_alp = '?';
 		else if (max_count < num[i]) 
 		{
-			res = i + 'A';
+			max_alp = i + 'A';
 			max_count = num[i];
 		}
 	}
-	printf("%c\n", res);
+	printf("%c\n", max_alp);
 	return 0;
 }
