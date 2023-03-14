@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int arr[30];
+int arr[30]; 
 char str1[1003], str2[1003];
 
 int main()
