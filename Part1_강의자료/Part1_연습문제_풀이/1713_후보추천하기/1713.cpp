@@ -3,48 +3,48 @@
 #include <algorithm>
 using namespace std;
 
-struct Student {
+struct student {
     int number;
     int scr;
-    int postedAt;
+    int posted_at;
 };
 
 int main()
 {
     int N, R;
-    vector<Student> post;
+    vector<student> post;
 
     scanf("%d", &N);
     scanf("%d", &R);
     for (int i = 0; i < R; i++)
     {
-        int votedNumber;
-        scanf("%d", &votedNumber);
+        int voted_number;
+        scanf("%d", &voted_number);
 
-        bool alreadyPosted = false;
+        bool already_posted = false;
         for (int j = 0; j < post.size(); j++)
         {
-            if (post[j].number == votedNumber)
+            if (post[j].number == voted_number)
             {
                 post[j].scr++;
-                alreadyPosted = true;
+                already_posted = true;
                 break;
             }
         }
 
-        if (!alreadyPosted)
+        if (!already_posted)
         {
             if (post.size() < N)
-                post.push_back({votedNumber, 1, i});
+                post.push_back({voted_number, 1, i});
             else
             {
-                sort(post.begin(), post.end(), [](Student o1, Student o2)->bool{ return o1.scr == o2.scr ? o1.postedAt < o2.postedAt : o1.scr < o2.scr; });
-                post[0] = {votedNumber, 1, i};
+                sort(post.begin(), post.end(), [](student o1, student o2)->bool{ return o1.scr == o2.scr ? o1.posted_at < o2.posted_at : o1.scr < o2.scr; });
+                post[0] = {voted_number, 1, i};
             }
         }
     }
 
-    sort(post.begin(), post.end(), [](Student o1, Student o2)->bool{ return o1.number < o2.number; });
+    sort(post.begin(), post.end(), [](student o1, student o2)->bool{ return o1.number < o2.number; });
     for (int i = 0; i < post.size(); i++)
         printf("%d ", post[i]);
     printf("\n");

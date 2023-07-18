@@ -1,20 +1,20 @@
-def howManyPass(givenTime, timePerPass):
+def how_many_pass(given_time, time_per_pass):
     count = 0
-    for t in timePerPass:
-        count += givenTime // t
+    for t in time_per_pass:
+        count += given_time // t
     return count
 
 N, M = map(int, input().split())
 
-timePerPass = [int(input()) for _ in range(N)]
+time_per_pass = [int(input()) for _ in range(N)]
 
 ans = 0
 l = 1
-r = min(timePerPass) * M
+r = min(time_per_pass) * M
 
 while l <= r:
     m = (l + r) // 2
-    if howManyPass(m, timePerPass) >= M:
+    if how_many_pass(m, time_per_pass) >= M:
         ans = m
         r = m - 1
     else:
