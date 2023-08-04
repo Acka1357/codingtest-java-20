@@ -13,7 +13,8 @@ int main()
     remain_cnt[cur_remain] = 1;
     long long ans = 0;
 
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
+    {
         int num;
         scanf("%d", &num);
         cur_remain = (cur_remain + num) % M;

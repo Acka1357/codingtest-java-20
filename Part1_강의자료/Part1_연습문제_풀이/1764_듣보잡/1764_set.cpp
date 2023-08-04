@@ -13,13 +13,15 @@ int main()
 
     string name;
     set<string> unhear;
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
+    {
         cin >> name;
         unhear.insert(name);
     }
 
     vector<string> ans;
-    for (int i = 0; i < M; i++) {
+    for (int i = 0; i < M; i++)
+    {
         cin >> name;
         if (unhear.find(name) != unhear.end())
             ans.push_back(name);

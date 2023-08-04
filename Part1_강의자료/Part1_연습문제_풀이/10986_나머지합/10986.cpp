@@ -8,7 +8,8 @@ int main()
     scanf("%d %d", &N, &M);
 
     vector<int> vec(N + 1);
-    for (int i = 1; i <= N; i++) {
+    for (int i = 1; i <= N; i++)
+    {
         int num;
         scanf("%d", &num);
         vec[i] = num % M;
@@ -19,7 +20,8 @@ int main()
     acc_remain_cnt[cur_remain]++;
     long long ans = 0;
 
-    for (int i = 1; i <= N; i++) {
+    for (int i = 1; i <= N; i++)
+    {
         cur_remain = (cur_remain + vec[i]) % M;
         ans += acc_remain_cnt[cur_remain];
         acc_remain_cnt[cur_remain]++;

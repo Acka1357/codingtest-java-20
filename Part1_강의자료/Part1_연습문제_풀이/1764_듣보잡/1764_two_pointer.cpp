@@ -24,7 +24,8 @@ int main()
 
     int pair_idx = 0;
     vector<string> ans;
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
+    {
         while (pair_idx < M && unseen[pair_idx] < unhear[i])
             pair_idx++;
         if (pair_idx < M && unseen[pair_idx] == unhear[i])
